@@ -64,7 +64,7 @@ jobs:
           sudo docker pull philaguy/infra_web
           sudo docker stop $(sudo docker ps -a -q)
           cd infra
-          sudo docker-compose up --detach --
+          sudo docker-compose up --detach
 
   send_message:
     runs-on: ubuntu-latest
