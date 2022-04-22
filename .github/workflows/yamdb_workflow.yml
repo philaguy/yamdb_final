@@ -62,7 +62,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           sudo docker rm -f $(docker ps -a -q)
-	  sudo docker pull philaguy/infra_web
+	  sudo docker pull philaguy/infra_web:latest
           cd api_yamdb
           sudo touch .env
           sudo echo DB_ENGINE="${{ secrets.DB_ENGINE }}" >> .env
@@ -74,8 +74,8 @@ jobs:
           cd ..
           cd infra
           sudo docker-compose up --detach
-	  sudo docker-compose exec it web python manage.py migrate
-          sudo docker-compose exec it web python manage.py collectstatic
+	  sudo docker-compose exec -it web python manage.py migrate
+          sudo docker-compose exec -it web python manage.py collectstatic
 
   send_message:
     runs-on: ubuntu-latest
