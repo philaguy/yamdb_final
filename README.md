@@ -2,7 +2,7 @@
 База данных лучших произведений мира и оценки экспертов
 
 ## Статус последнего релиза:
-![Workflow_yamdb](https://github.com/github/docs/actions/workflows/yamdb_workflow.yml/badge.svg?event=push)
+![Workflow_yamdb](https://github.com/github/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg?event=push)
 
 ## Описание:
 
