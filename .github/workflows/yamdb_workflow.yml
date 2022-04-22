@@ -61,7 +61,7 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-	  sudo docker rm -f $(docker ps -q -a)
+          sudo docker rm -f $(docker ps -q -a)
           sudo docker pull philaguy/infra_web:latest
           touch .env
           sudo echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
