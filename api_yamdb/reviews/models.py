@@ -1,6 +1,5 @@
 from django.db import models
 from django.db.models.deletion import CASCADE, SET_NULL
-
 from users.models import CustomUser
 
 SCORES = [(i, i) for i in range(1, 11)]
