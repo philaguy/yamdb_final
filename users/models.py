@@ -2,7 +2,6 @@ from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-
 USER_ROLE = "user"
 MODERATOR_ROLE = "moderator"
 ADMIN_ROLE = "admin"
