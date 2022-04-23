@@ -32,6 +32,7 @@ jobs:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     needs: test
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
@@ -55,6 +56,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
+    if: github.ref == 'refs/heads/master'
     steps:
     - name: executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
@@ -64,6 +66,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           sudo docker rm -f $(docker ps -q -a)
+          sudo docker rmi -f $(docker image ps -q -a)
           sudo docker pull philaguy/infra_web:latest
           touch .env
           sudo echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
